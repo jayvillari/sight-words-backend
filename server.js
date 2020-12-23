@@ -88,7 +88,6 @@ app.get('/words', (req, res) => {
   });
 
 app.get('/child', (req, res) => {
-    console.log("test")
     return res.send(childWords);
   });
 
