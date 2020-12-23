@@ -83,11 +83,13 @@ app.get('/words', (req, res) => {
   });
 
 app.get('/child', (req, res) => {
-  Word.find({isChild: 'true'}, (err, word) => {
-    childWords.push(word)
-    console.log("test 2")
-    db.close();
-});
+    Word.find((err, word) => {
+      console.log(word)
+      childWords.push(word)
+      db.close();
+    });
+    const docs = await Word.find({ isChild: 'true' });
+    console.log(docs);
     return res.send(childWords);
   });
 
