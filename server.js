@@ -70,7 +70,7 @@ Word.find((err, word) => {
 });
 
 Word.find((err, word) => {
-  console.log(word)
+  console.log(err)
   childWords.push(word)
   db.close();
 });
