@@ -66,19 +66,17 @@ const adultWords = [];
 
 Word.find((err, word) => {
     allWords.push(word)
-    console.log(err.message)
     db.close();
 });
 
  Word.find({isChild: 'true'}, (err, word) => {
     childWords.push(word)
-    console.log(err.message)
+    console.log("test")
     db.close();
 });
 
 Word.find({isChild: 'false'}, (err, word) => {
     adultWords.push(word)
-    console.log(err.message)
     db.close();
 });
 
