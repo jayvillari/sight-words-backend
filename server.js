@@ -65,16 +65,17 @@ const childWords = [];
 const adultWords = [];
 
 Word.find((err, word) => {
+  if (err) {
+    console.log("Error: " + err);
+  }
     allWords.push(word)
     db.close();
 });
 
 Word.find((err, word) => {
-  console.log(err)
   childWords.push(word)
   db.close();
 });
-console.log("Child words: " + childWords);
 
 Word.find({isChild: 'false'}, (err, word) => {
     adultWords.push(word)
