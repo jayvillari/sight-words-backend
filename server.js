@@ -69,11 +69,6 @@ Word.find((err, word) => {
     db.close();
 });
 
- Word.find({isChild: 'true'}, (err, word) => {
-    childWords.push(word)
-    console.log("test")
-    db.close();
-});
 
 Word.find({isChild: 'false'}, (err, word) => {
     adultWords.push(word)
@@ -88,6 +83,11 @@ app.get('/words', (req, res) => {
   });
 
 app.get('/child', (req, res) => {
+  Word.find({isChild: 'true'}, (err, word) => {
+    childWords.push(word)
+    console.log("test 2")
+    db.close();
+});
     return res.send(childWords);
   });
 
