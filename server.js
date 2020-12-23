@@ -88,7 +88,6 @@ app.get('/child', (req, res) => {
       childWords.push(word)
       db.close();
     });
-    const docs = await Word.find({ isChild: 'true' });
     console.log(docs);
     return res.send(childWords);
   });
