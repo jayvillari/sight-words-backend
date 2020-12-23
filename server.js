@@ -69,17 +69,17 @@ Word.find((err, word) => {
     console.log("Error: " + err);
   }
     allWords.push(word)
-    //db.close();
+    db.close();
 });
 
 Word.find((err, word) => {
   childWords.push(word)
-  //db.close();
+  mongoose.disconnect();
 });
 
 Word.find({isChild: 'false'}, (err, word) => {
     adultWords.push(word)
-    //db.close();
+    db.close();
 });
 
 ///////////////////////////////////
