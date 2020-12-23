@@ -68,19 +68,6 @@ Word.find((err, word) => {
   childWords.push(word)
 });
 
-Word.find((err, word) => {
-  if (err) {
-    console.log("Error: " + err);
-  }
-    allWords.push(word)
-    db.close();
-});
-
-Word.find({isChild: 'false'}, (err, word) => {
-    adultWords.push(word)
-    db.close();
-});
-
 ///////////////////////////////////
 // Routes
 ///////////////////////////////////
