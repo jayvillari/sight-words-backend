@@ -65,6 +65,10 @@ const childWords = [];
 const adultWords = [];
 
 Word.find((err, word) => {
+  childWords.push(word)
+});
+
+Word.find((err, word) => {
   if (err) {
     console.log("Error: " + err);
   }
@@ -72,15 +76,12 @@ Word.find((err, word) => {
     db.close();
 });
 
-Word.find((err, word) => {
-  childWords.push(word)
-  mongoose.disconnect();
-});
-
 Word.find({isChild: 'false'}, (err, word) => {
     adultWords.push(word)
     db.close();
 });
+
+db.close();
 
 ///////////////////////////////////
 // Routes
