@@ -81,8 +81,6 @@ Word.find({isChild: 'false'}, (err, word) => {
     db.close();
 });
 
-db.close();
-
 ///////////////////////////////////
 // Routes
 ///////////////////////////////////
@@ -91,6 +89,7 @@ app.get('/words', (req, res) => {
   });
 
 app.get('/child', (req, res) => {
+    db.close();
     return res.send(childWords);
   });
 
